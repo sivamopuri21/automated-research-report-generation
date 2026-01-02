@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=68"]         # PEP 660 editable support ke liye naya setuptools
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "automated-research-report-generation"
 version = "0.1.0"
@@ -5,5 +9,24 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "langgraph>=1.0.5",
+    "ipykernel>=7.1.0",
+    "langchain-community>=0.3.31",
+    "langchain-core>=0.3.68,<0.4.0",
+    "langchain-google-genai==2.1.8",
+    "langchain-groq==0.3.6",
+    "langchain-openai==0.3.32",
+    "langgraph==0.2.50",
+    "tavily-python>=0.7.17",
+    "wikipedia>=1.4.0",
 ]
+
+# Optional: authors, license
+authors = [{ name = "Sivakumar Mopuri" }]
+license = { text = "Proprietary" }
+
+#Optional : CLI command (python -m pip install -e .)
+[project.scripts]
+research_and_analyst = "research_and_analyst.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
