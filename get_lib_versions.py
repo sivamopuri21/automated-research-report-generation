@@ -4,7 +4,9 @@ packages = [
     "langchain_community",
     "langchain_core",
     "tavily-python",
-    "wikipedia"
+    "wikipedia",
+    "python-docx",
+    "reportlab"
     ]
 for pkg in packages:
     try:

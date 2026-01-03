@@ -25,7 +25,12 @@ from research_and_analyst.utils.model_loader import ModelLoader
 
 class AutonomousReportGeneration:
     def __init__(self):
-        pass
+        try:
+            model_loader = ModelLoader()
+            self.llm = model_loader.load_llm()
+        except Exception as e:
+            print(f"Error loading LLM: {e}")
+            self.llm = None
 
     def create_analyst(self):
         pass
