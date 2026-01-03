@@ -28,5 +28,3 @@ license = { text = "Proprietary" }
 [project.scripts]
 research_and_analyst = "research_and_analyst.cli:main"
 
-[tool.setuptools.packages.find]
-where = ["."]
