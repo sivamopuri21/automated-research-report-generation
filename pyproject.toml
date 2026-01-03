@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68"]         # PEP 660 editable support ke liye naya setuptools
+requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -20,11 +20,14 @@ dependencies = [
     "wikipedia>=1.4.0",
 ]
 
-# Optional: authors, license
 authors = [{ name = "Sivakumar Mopuri" }]
 license = { text = "Proprietary" }
 
-#Optional : CLI command (python -m pip install -e .)
 [project.scripts]
 research_and_analyst = "research_and_analyst.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["research_and_analyst*"]
+exclude = ["static*", "templates*", "notebook*"]
 
