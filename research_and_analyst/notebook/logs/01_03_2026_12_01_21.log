@@ -23,3 +23,5 @@
 {"timestamp": "2026-01-03T06:33:23.327135Z", "level": "warning", "event": "ASTRA_DB_KEYSPACE is missing from environment"}
 {"config_keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-01-03T06:33:23.329134Z", "level": "info", "event": "YAML config loaded"}
 {"provider": "google", "model": "gemini-2.0-flash", "timestamp": "2026-01-03T06:34:01.778647Z", "level": "info", "event": "Loading LLM"}
+USER_AGENT environment variable not set, consider setting it to identify your requests.
+USER_AGENT environment variable not set, consider setting it to identify your requests.
