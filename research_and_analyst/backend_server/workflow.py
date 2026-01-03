@@ -40,7 +40,7 @@ def build_interview_graph(llm,tavily_search=None):
         analyst = state["analyst"]
         messages = state["messages"]
 
-        system_message = ANALYST_ASK_QUESTIONS.format(goal=analyst.persona)
+        system_message = ANALYST_ASK_QUESTIONS.format(goals=analyst.persona)
         question = llm.invoke([
             SystemMessage(content=system_message)
         ]+ messages)
@@ -126,7 +126,7 @@ class AutonomousReportGeneration:
     def create_analyst(self,state:GenerateAnalystsState):
         topic=state["topic"]
         max_analysts=state["max_analysts"]  
-        human_analyst_feedback=state["human_analyst_feedback"]
+        human_analyst_feedback=state.get("human_analyst_feedback", "")
 
         structured_llm = llm.with_structured_output(Perspectives)
 
@@ -213,7 +213,7 @@ class AutonomousReportGeneration:
             save_dir = os.path.join(os.getcwd(), "generated_report")
 
         os.makedirs(save_dir, exist_ok=True)
-        file_path = os.join(save_dir,file_name)
+        file_path = os.path.join(save_dir,file_name)
         if format=="docx":
             self._save_as_docx(final_report,file_path)
         elif format=="pdf":
@@ -314,7 +314,7 @@ if __name__ == "__main__":
     llm = ModelLoader().load_llm()
     autonomous_report_generation = AutonomousReportGeneration(llm)
     graph = autonomous_report_generation.build_graph()
-    topic =""
+    topic ="How can generative help us to play the cricket?"
     thread = {"configurable":{"thread_id":"1"}}
     for _ in graph.stream({"topic":topic,"max_analysts":3},thread,stream_mode="values"): 
         print(_)
