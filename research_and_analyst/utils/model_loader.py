@@ -10,8 +10,12 @@ from research_and_analyst.logger import GLOBAL_LOGGER as log
 from research_and_analyst.exception.custom_exception import ResearchAnalystException
 import asyncio
 
+# Load environment variables globally
+
+
 class ApiKeyManager:
     def __init__(self):
+        load_dotenv()
         self.api_keys = {
             "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY"),
             "GOOGLE_API_KEY": os.getenv("GOOGLE_API_KEY"),
