@@ -11,3 +11,4 @@ wheels/
 .env
 ./notebok/logs/
 ./notebok/
+logs/
