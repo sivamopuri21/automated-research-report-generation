@@ -20,12 +20,11 @@ class ApiKeyManager:
             "ASTRA_DB_APPLICATION_TOKEN": os.getenv("ASTRA_DB_APPLICATION_TOKEN"),
             "ASTRA_DB_KEYSPACE": os.getenv("ASTRA_DB_KEYSPACE"),
         }
-        # Just log loaded keys (don't print actual values)
         for key, val in self.api_keys.items():
             if val:
-                log.info(f"{key} loaded from environment: {val}")
+                log.info(f"{key} loaded from environment")
             else:
-                log.warning(f"{key} is missing from environment: {val}")
+                log.warning(f"{key} is missing from environment")
 
     def get(self, key: str):
         return self.api_keys.get(key)
