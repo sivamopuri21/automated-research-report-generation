@@ -6,7 +6,13 @@ packages = [
     "tavily-python",
     "wikipedia",
     "python-docx",
-    "reportlab"
+    "reportlab",
+    "fastapi",
+    "uvicorn",
+    "jinja2",
+    "httpx",
+    "aiofiles",
+    "sqlalchemy"
     ]
 for pkg in packages:
     try:
